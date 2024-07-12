@@ -26,7 +26,7 @@ namespace ApiTest.Controllers
 
         // GET api/<USersController>/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetUser(string id)
+        public async Task<ActionResult<User>> GetUserById(string id)
         {
             var user = await _context.Users.FindAsync(id);
 
@@ -35,8 +35,10 @@ namespace ApiTest.Controllers
                 return NotFound();
             }
 
-            return user;
+            return Ok(user);
         }
+
+        /*
 
         // POST api/<USersController>
         [HttpPost]
@@ -55,5 +57,6 @@ namespace ApiTest.Controllers
         public void Delete(int id)
         {
         }
+        */
     }
 }
